@@ -248,7 +248,8 @@ function Tour({
   return isOpen ? (
     <Portal>
       <GlobalStyle />
-      {isCircleMask ? <SvgCircleMask
+      {isCircleMask ? (
+      <SvgCircleMask
         onClick={maskClickHandler}
         windowWidth={state.w}
         windowHeight={state.h}
@@ -268,7 +269,9 @@ function Tour({
           CN.mask.disableInteraction,
           highlightedMaskClassName
         )}
-      /> : <SvgMask
+      />
+      ) : (
+      <SvgMask
       onClick={maskClickHandler}
       windowWidth={state.w}
       windowHeight={state.h}
@@ -288,7 +291,8 @@ function Tour({
         CN.mask.disableInteraction,
         highlightedMaskClassName
       )}
-    />}
+      />
+      )}
       
       <FocusLock>
         <Guide
