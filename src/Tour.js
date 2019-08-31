@@ -14,6 +14,7 @@ import {
   Navigation,
   Dot,
   SvgMask,
+  SvgCircleMask
 } from './components/index'
 import Portal from './Portal'
 import * as hx from './helpers'
@@ -371,6 +372,7 @@ class Tour extends Component {
       rounded,
       accentColor,
       CustomHelper,
+      isCircleMask
     } = this.props
 
     const {
@@ -395,7 +397,7 @@ class Tour extends Component {
       return (
         <Portal>
           <GlobalStyle />
-          <SvgMask
+          {isCircleMask ? <SvgCircleMask
             className={cn(CN.mask.base, maskClassName, {
               [CN.mask.isOpen]: isOpen,
             })}
@@ -418,7 +420,31 @@ class Tour extends Component {
             disableInteractionClassName={`${
               CN.mask.disableInteraction
             } ${highlightedMaskClassName}`}
-          />
+          /> : <SvgMask
+          className={cn(CN.mask.base, maskClassName, {
+            [CN.mask.isOpen]: isOpen,
+          })}
+          onClick={this.maskClickHandler}
+          forwardRef={c => (this.mask = c)}
+          windowWidth={windowWidth}
+          windowHeight={windowHeight}
+          targetWidth={targetWidth}
+          targetHeight={targetHeight}
+          targetTop={targetTop}
+          targetLeft={targetLeft}
+          padding={maskSpace}
+          rounded={rounded}
+          className={maskClassName}
+          disableInteraction={
+            steps[current].stepInteraction === false || disableInteraction
+              ? !steps[current].stepInteraction
+              : disableInteraction
+          }
+          disableInteractionClassName={`${
+            CN.mask.disableInteraction
+          } ${highlightedMaskClassName}`}
+        />}
+          
           <FocusLock disabled={focusUnlocked}>
             <Guide
               ref={this.helper}

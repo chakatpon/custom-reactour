@@ -1,46 +1,16 @@
 {
-  "name": "reactour",
-  "version": "1.15.0",
-  "description": "Tourist Guide into your React Components",
+  "name": "custom-reactour",
+  "version": "1.0.1",
+  "description": "fix clippath for SvgCircleMask",
   "main": "dist/reactour.cjs.js",
   "module": "dist/reactour.esm.js",
-  "scripts": {
-    "prepare": "npm run lib",
-    "start": "webpack-dev-server --mode development --open",
-    "prelib": "rimraf dist",
-    "lib": "rollup -c",
-    "build": "webpack --mode production",
-    "lint": "eslint --fix ./; exit 0",
-    "dev": "rollup -c -w"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/elrumordelaluz/reactour.git"
-  },
-  "keywords": [
-    "react",
-    "tour",
-    "intro",
-    "guide",
-    "introduction",
-    "step-by-step",
-    "guide",
-    "walkthrough",
-    "joyride",
-    "tourist-guide",
-    "product-intro",
-    "presentation"
-  ],
   "files": [
     "dist",
     "README.md"
   ],
-  "author": "Lionel T <elrumordelaluz@hotmail.com> (https://elrumordelaluz.com/)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/elrumordelaluz/reactour/issues"
+  "directories": {
+    "doc": "docs"
   },
-  "homepage": "https://github.com/elrumordelaluz/reactour#readme",
   "devDependencies": {
     "@babel/cli": "7.5.5",
     "@babel/core": "7.5.5",
@@ -88,5 +58,39 @@
     "react-focus-lock": "2.0.5",
     "scroll-smooth": "1.0.1",
     "scrollparent": "2.0.1"
-  }
+  },
+  "scripts": {
+    "prepare": "npm run lib",
+    "start": "webpack-dev-server --mode development --open",
+    "prelib": "rimraf dist",
+    "lib": "rollup -c",
+    "build": "webpack --mode production",
+    "lint": "eslint --fix ./; exit 0",
+    "dev": "rollup -c -w"
+  },
+  "keywords": [
+    "custom-reactour",
+    "react",
+    "tour",
+    "intro",
+    "guide",
+    "introduction",
+    "step-by-step",
+    "guide",
+    "walkthrough",
+    "joyride",
+    "tourist-guide",
+    "product-intro",
+    "presentation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chakatpon/custom-reactour.git"
+  },
+  "author": "Lionel T <elrumordelaluz@hotmail.com> (https://elrumordelaluz.com/) and Modify by giraffeman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chakatpon/custom-reactour/issues"
+  },
+  "homepage": "https://github.com/chakatpon/custom-reactour#readme"
 }

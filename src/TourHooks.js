@@ -9,6 +9,7 @@ import { GlobalStyle } from './style'
 import Portal from './Portal'
 import {
   SvgMask,
+  SvgCircleMask,
   Guide,
   Badge,
   Controls,
@@ -55,6 +56,7 @@ function Tour({
   disableDotsNavigation,
   lastStepNextButton,
   nextButton,
+  isCircleMask
 }) {
   const [current, setCurrent] = useState(0)
   const [state, dispatch] = useReducer(reducer, initialState)
@@ -246,7 +248,7 @@ function Tour({
   return isOpen ? (
     <Portal>
       <GlobalStyle />
-      <SvgMask
+      {isCircleMask ? <SvgCircleMask
         onClick={maskClickHandler}
         windowWidth={state.w}
         windowHeight={state.h}
@@ -266,7 +268,28 @@ function Tour({
           CN.mask.disableInteraction,
           highlightedMaskClassName
         )}
-      />
+      /> : <SvgMask
+      onClick={maskClickHandler}
+      windowWidth={state.w}
+      windowHeight={state.h}
+      targetWidth={state.width}
+      targetHeight={state.height}
+      targetTop={state.top}
+      targetLeft={state.left}
+      padding={10}
+      rounded={3}
+      className={maskClassName}
+      disableInteraction={
+        steps[current].stepInteraction === false || disableInteraction
+          ? !steps[current].stepInteraction
+          : disableInteraction
+      }
+      disableInteractionClassName={cn(
+        CN.mask.disableInteraction,
+        highlightedMaskClassName
+      )}
+    />}
+      
       <FocusLock>
         <Guide
           ref={helper}

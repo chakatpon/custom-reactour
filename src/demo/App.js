@@ -60,6 +60,7 @@ function App() {
           rounded={5}
           accentColor={accentColor}
           CustomHelper={customComps ? MyCustomHelper : null}
+          isCircleMask={true}
         />
       </Suspense>
     </>

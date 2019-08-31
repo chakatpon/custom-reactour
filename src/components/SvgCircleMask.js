@@ -61,7 +61,7 @@ export default function SvgCircleMask({
           </mask>
           <clipPath id="clip-path">
             {/* top */}
-            <rect x={0} y={0} width={windowWidth} height={top} />
+            <rect x={0} y={0} width={windowWidth} height={top - targetWidth} />
             {/* left */}
             <rect x={0} y={top} width={left} height={height} />
             {/* right */}
@@ -74,9 +74,9 @@ export default function SvgCircleMask({
             {/* bottom */}
             <rect
               x={0}
-              y={targetTop + targetHeight + padding}
+              y={targetTop + targetHeight + padding + targetWidth}
               width={windowWidth}
-              height={hx.safe(windowHeight - targetHeight - top)}
+              height={hx.safe(windowHeight - targetHeight - top )}
             />
           </clipPath>
         </defs>
