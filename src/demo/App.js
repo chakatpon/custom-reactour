@@ -59,6 +59,7 @@ function App() {
           className="helper"
           rounded={5}
           accentColor={accentColor}
+          scrollDuration={1000}
           CustomHelper={customComps ? MyCustomHelper : null}
           isCircleMask={true}
         />

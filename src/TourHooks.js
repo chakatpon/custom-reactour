@@ -185,6 +185,7 @@ function Tour({
         scrollSmooth.to(node, {
           context: hx.isBody(parentScroll) ? window : parentScroll,
           duration: scrollDuration,
+          speedAsDuration: true,
           offset: scrollOffset || -(h / 2),
           callback: _node => {
             makeCalculations(hx.getNodeRect(_node), step.position)

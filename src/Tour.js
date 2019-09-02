@@ -217,6 +217,7 @@ class Tour extends Component {
       scrollSmooth.to(node, {
         context: hx.isBody(parentScroll) ? window : parentScroll,
         duration: scrollDuration,
+        speedAsDuration: true,
         offset: scrollOffset || -(h / 2),
         callback: nd => {
           this.setState(setNodeState(nd, this.helper.current, stepPosition), cb)
