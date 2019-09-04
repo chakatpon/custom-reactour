@@ -183,7 +183,7 @@ function Tour({
       if (!hx.inView({ ...nodeRect, w, h, threshold: inViewThreshold })) {
         const parentScroll = Scrollparent(node)
         scrollSmooth.to(node, {
-          context: hx.isBody(parentScroll) ? window : parentScroll,
+          // context: hx.isBody(parentScroll) ? window : parentScroll,
           duration: scrollDuration,
           speedAsDuration: true,
           offset: scrollOffset || -(h / 2),

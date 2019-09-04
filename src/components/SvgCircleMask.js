@@ -53,11 +53,11 @@ export default function SvgCircleMask({
             />
             
            
-            <ellipse
+            <circle
               cx={targetLeft + (targetWidth/2)}
               cy={targetTop + (targetHeight/2)}
-              rx={(targetWidth/2) + padding}
-              ry={(targetHeight/2) + padding}
+              r={(targetWidth/2) + padding}
+              
               fill="black"
             />
           </mask>
@@ -76,7 +76,7 @@ export default function SvgCircleMask({
             {/* bottom */}
             <rect
               x={0}
-              y={targetTop + targetHeight + padding + targetHeight}
+              y={targetTop + targetHeight + padding + targetWidth}
               width={windowWidth}
               height={hx.safe(windowHeight - targetHeight - top )}
             />

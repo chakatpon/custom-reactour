@@ -60,6 +60,7 @@ function App() {
           rounded={5}
           accentColor={accentColor}
           scrollDuration={1000}
+          // inViewThreshold={1000}
           CustomHelper={customComps ? MyCustomHelper : null}
           isCircleMask={true}
         />
