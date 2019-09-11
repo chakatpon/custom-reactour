@@ -8,6 +8,7 @@ import { GlobalStyle } from './style'
 import {
   Arrow,
   Close,
+  CustomClose,
   Guide,
   Badge,
   Controls,
@@ -316,6 +317,7 @@ class Tour extends Component {
       prevStep,
       disableKeyboardNavigation,
       showCloseButton,
+      showCustomCloseButton
     } = this.props
     e.stopPropagation()
 
@@ -357,6 +359,7 @@ class Tour extends Component {
       maskClassName,
       showButtons,
       showCloseButton,
+      showCustomCloseButton,
       showNavigation,
       showNavigationNumber,
       showNumber,
@@ -572,7 +575,8 @@ class Tour extends Component {
                     </Controls>
                   )}
 
-                  {showCloseButton ? <Close onClick={onRequestClose} /> : null}
+                  {showCloseButton && !showCustomCloseButton ? <Close onClick={onRequestClose} /> : null}
+                  {showCustomCloseButton ? <CustomClose onClick={onRequestClose} /> : null}
                 </>
               )}
             </Guide>

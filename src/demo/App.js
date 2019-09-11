@@ -63,6 +63,7 @@ function App() {
           // inViewThreshold={1000}
           CustomHelper={customComps ? MyCustomHelper : null}
           isCircleMask={true}
+          
         />
       </Suspense>
     </>
