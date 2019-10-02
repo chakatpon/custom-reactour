@@ -62,7 +62,7 @@ function App() {
           scrollDuration={1000}
           // inViewThreshold={1000}
           CustomHelper={customComps ? MyCustomHelper : null}
-          isCircleMask={true}
+          // isCircleMask={true}
           
         />
       </Suspense>

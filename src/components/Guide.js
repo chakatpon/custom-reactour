@@ -21,7 +21,6 @@ const Guide = styled.div`
   top: 0;
   left: 0;
   z-index: 1000000;
-
   transform: ${props => {
     const {
       targetTop,
@@ -108,9 +107,112 @@ const Guide = styled.div`
     }
 
     const p = pos(helperPosition)
-
     return `translate(${p[0]}px, ${p[1]}px)`
   }};
+  :after ${ props => {
+    const {
+      targetTop,
+      targetRight,
+      targetBottom,
+      targetLeft,
+      windowWidth,
+      windowHeight,
+      helperWidth,
+      helperHeight,
+      helperPosition,
+      padding,
+    } = props
+    const available = {
+      left: targetLeft,
+      right: windowWidth - targetRight,
+      top: targetTop,
+      bottom: windowHeight - targetBottom,
+    }
+    let arrowPosition = hx.bestPositionOf(available)[0];
+    let arrow = `{
+      content: " ";
+      width: 0px;
+      height: 0px;
+      border-top: 10px solid transparent;
+      border-left: 10px solid #fff;
+      border-bottom: 10px solid transparent;
+      border-right: 10px solid transparent;
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      margin-top: -10px;
+    }`;
+
+    const generateArrowPosition = () => {
+
+      switch (arrowPosition) {
+        case 'right':
+            arrow = `{
+              content: " ";
+              width: 0px;
+              height: 0px;
+              border-top: 10px solid transparent;
+              border-left: 10px solid transparent;
+              border-bottom: 10px solid transparent;
+              border-right: 10px solid #fff;
+              position: absolute;
+              right: 100%;
+              top: 50%;
+              margin-top: -10px;
+            }`;
+            break;
+          case 'left': 
+            arrow = `{
+              content: " ";
+              width: 0px;
+              height: 0px;
+              border-top: 10px solid transparent;
+              border-left: 10px solid #fff;
+              border-bottom: 10px solid transparent;
+              border-right: 10px solid transparent;
+              position: absolute;
+              left: 100%;
+              top: 50%;
+              margin-top: -10px;
+            }`;
+            break;
+          case 'top':
+              arrow = `{
+                content: " ";
+                width: 0px;
+                height: 0px;
+                border-top: 10px solid #fff;
+                border-left: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+                border-right: 10px solid transparent;
+                position: absolute;
+                left: 50%;
+                top: 100%;
+                margin-left: -10px;
+              }`;
+              break;
+          case 'bottom':
+              arrow = `{
+                content: " ";
+                width: 0px;
+                height: 0px;
+                border-top: 10px solid transparent;
+                border-left: 10px solid transparent;
+                border-bottom: 10px solid #fff;
+                border-right: 10px solid transparent;
+                position: absolute;
+                left: 50%;
+                bottom: 100%;
+                margin-left: -10px;
+              }`;
+              break;
+      }
+      
+    }
+
+    generateArrowPosition()
+    return arrow
+  }}
 `
 
 export default Guide
