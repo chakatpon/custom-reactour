@@ -121,6 +121,7 @@ const Guide = styled.div`
       helperHeight,
       helperPosition,
       padding,
+      enableArrow
     } = props
     const available = {
       left: targetLeft,
@@ -145,68 +146,74 @@ const Guide = styled.div`
 
     const generateArrowPosition = () => {
 
-      switch (arrowPosition) {
-        case 'right':
-            arrow = `{
-              content: " ";
-              width: 0px;
-              height: 0px;
-              border-top: 10px solid transparent;
-              border-left: 10px solid transparent;
-              border-bottom: 10px solid transparent;
-              border-right: 10px solid #fff;
-              position: absolute;
-              right: 100%;
-              top: 50%;
-              margin-top: -10px;
-            }`;
-            break;
-          case 'left': 
-            arrow = `{
-              content: " ";
-              width: 0px;
-              height: 0px;
-              border-top: 10px solid transparent;
-              border-left: 10px solid #fff;
-              border-bottom: 10px solid transparent;
-              border-right: 10px solid transparent;
-              position: absolute;
-              left: 100%;
-              top: 50%;
-              margin-top: -10px;
-            }`;
-            break;
-          case 'top':
-              arrow = `{
-                content: " ";
-                width: 0px;
-                height: 0px;
-                border-top: 10px solid #fff;
-                border-left: 10px solid transparent;
-                border-bottom: 10px solid transparent;
-                border-right: 10px solid transparent;
-                position: absolute;
-                left: 50%;
-                top: 100%;
-                margin-left: -10px;
-              }`;
-              break;
-          case 'bottom':
+      if(enableArrow){
+        switch (arrowPosition) {
+          case 'right':
               arrow = `{
                 content: " ";
                 width: 0px;
                 height: 0px;
                 border-top: 10px solid transparent;
                 border-left: 10px solid transparent;
-                border-bottom: 10px solid #fff;
-                border-right: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+                border-right: 10px solid #fff;
                 position: absolute;
-                left: 50%;
-                bottom: 100%;
-                margin-left: -10px;
+                right: 100%;
+                top: 50%;
+                margin-top: -10px;
               }`;
               break;
+            case 'left': 
+              arrow = `{
+                content: " ";
+                width: 0px;
+                height: 0px;
+                border-top: 10px solid transparent;
+                border-left: 10px solid #fff;
+                border-bottom: 10px solid transparent;
+                border-right: 10px solid transparent;
+                position: absolute;
+                left: 100%;
+                top: 50%;
+                margin-top: -10px;
+              }`;
+              break;
+            case 'top':
+                arrow = `{
+                  content: " ";
+                  width: 0px;
+                  height: 0px;
+                  border-top: 10px solid #fff;
+                  border-left: 10px solid transparent;
+                  border-bottom: 10px solid transparent;
+                  border-right: 10px solid transparent;
+                  position: absolute;
+                  left: 50%;
+                  top: 100%;
+                  margin-left: -10px;
+                }`;
+                break;
+            case 'bottom':
+                arrow = `{
+                  content: " ";
+                  width: 0px;
+                  height: 0px;
+                  border-top: 10px solid transparent;
+                  border-left: 10px solid transparent;
+                  border-bottom: 10px solid #fff;
+                  border-right: 10px solid transparent;
+                  position: absolute;
+                  left: 50%;
+                  bottom: 100%;
+                  margin-left: -10px;
+                }`;
+                break;
+        }
+      }else {
+        arrow = ``
       }
+
+      
       
     }
 

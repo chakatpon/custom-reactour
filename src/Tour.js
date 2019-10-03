@@ -377,7 +377,8 @@ class Tour extends Component {
       rounded,
       accentColor,
       CustomHelper,
-      isCircleMask
+      isCircleMask,
+      enableArrow
     } = this.props
 
     const {
@@ -464,6 +465,7 @@ class Tour extends Component {
               helperWidth={helperWidth}
               helperHeight={helperHeight}
               helperPosition={helperPosition}
+              enableArrow={enableArrow}
               padding={maskSpace}
               tabIndex={-1}
               current={current}

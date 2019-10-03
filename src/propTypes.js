@@ -56,7 +56,8 @@ export const propTypes = {
   ]),
   rounded: PropTypes.number,
   accentColor: PropTypes.string,
-  isCircleMask: PropTypes.bool
+  isCircleMask: PropTypes.bool,
+  enableArrow: PropTypes.bool
 }
 
 export const defaultProps = {
@@ -73,5 +74,6 @@ export const defaultProps = {
   rounded: 0,
   accentColor: '#007aff',
   closeWithMask: true,
-  isCircleMask: false
+  isCircleMask: false,
+  enableArrow: false
 }
