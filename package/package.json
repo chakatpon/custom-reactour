@@ -1,6 +1,6 @@
 {
   "name": "custom-reactour",
-  "version": "1.0.17",
+  "version": "1.0.4",
   "description": "fix clippath for SvgCircleMask",
   "main": "dist/reactour.cjs.js",
   "module": "dist/reactour.esm.js",
