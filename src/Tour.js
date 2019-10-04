@@ -5,6 +5,7 @@ import Scrollparent from 'scrollparent'
 import debounce from 'lodash.debounce'
 import FocusLock from 'react-focus-lock'
 import { GlobalStyle } from './style'
+import 'bootstrap/dist/css/bootstrap.css';
 import {
   Arrow,
   Close,
@@ -363,6 +364,8 @@ class Tour extends Component {
       showNavigation,
       showNavigationNumber,
       showNumber,
+      showMaskNumber,
+      showDVPanel,
       onRequestClose,
       maskSpace,
       lastStepNextButton,
@@ -378,7 +381,8 @@ class Tour extends Component {
       accentColor,
       CustomHelper,
       isCircleMask,
-      enableArrow
+      enableArrow,
+      shadowClass
     } = this.props
 
     const {
@@ -440,7 +444,11 @@ class Tour extends Component {
           targetLeft={targetLeft}
           padding={maskSpace}
           rounded={rounded}
+          accentColor={accentColor}
           className={maskClassName}
+          current={current}
+          shadowClass={shadowClass}
+          showMaskNumber={showMaskNumber}
           disableInteraction={
             steps[current].stepInteraction === false || disableInteraction
               ? !steps[current].stepInteraction
@@ -574,8 +582,91 @@ class Tour extends Component {
                           }
                         />
                       )}
+                      
                     </Controls>
+                    
                   )}
+                  { showDVPanel 
+                      ? <Controls data-tour-elem="controls">
+                  
+                      <span 
+                        class="align-middle"
+                        style={{ color: accentColor}}
+                        >
+                        {current}/{steps.length}
+                      </span>
+                      <button 
+                        className="btn border mx-2 dv-btn"
+                        onClick={onRequestClose}
+                        >
+                        Skip
+                      </button>
+                      <div class="btn-group" role="group" >
+                        <button 
+                          type="button" 
+                          class="btn border pl-1 dv-btn"
+                          onClick={
+                            typeof prevStep === 'function'
+                              ? prevStep
+                              : this.prevStep
+                          }
+                          >
+                          <svg 
+                            width="20"
+                            height="10"
+                            viewBox="0 0 10 14.4"
+                            >
+                              <path
+                                d={ 'M1.4 7.2h16M7.6 1L1.4 7.2l6.2 6.2'}
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="1"
+                                strokeLinecap="round"
+                                strokeMiterlimit="2"
+                              />
+                          </svg>
+                          <span className="ml-1">
+                            Back
+                          </span>
+                        </button>
+                        <button 
+                          type="button" 
+                          class="btn border dv-btn"
+                          onClick={
+                            current === steps.length - 1
+                              ? lastStepNextButton
+                                ? onRequestClose
+                                : () => {}
+                              : typeof nextStep === 'function'
+                              ? nextStep
+                              : this.nextStep
+                          }
+                          >
+                          <span className="mr-1">
+                            Next
+                          </span>
+                          <svg 
+                            width="20"
+                            height="10"
+                            viewBox="0 0 10 14.4"
+                            >
+                              <path
+                                d={ 'M17 7.2H1M10.8 1L17 7.2l-6.2 6.2'}
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="1"
+                                strokeLinecap="round"
+                                strokeMiterlimit="2"
+                              />
+                          </svg>
+                        </button>
+                            
+                      </div>
+                    </Controls>
+                    : null
+                  }
+                  
+
 
                   {showCloseButton && !showCustomCloseButton ? <Close onClick={onRequestClose} /> : null}
                   {showCustomCloseButton ? <CustomClose onClick={onRequestClose} /> : null}

@@ -53,6 +53,7 @@ function App() {
           onAfterOpen={disableBody}
           onBeforeClose={enableBody}
           onRequestClose={() => setOpen(false)}
+          showNumber={false}
           steps={tourConfig}
           isOpen={isTourOpen}
           maskClassName="mask"
@@ -63,6 +64,12 @@ function App() {
           // inViewThreshold={1000}
           CustomHelper={customComps ? MyCustomHelper : null}
           // isCircleMask={true}
+          shadowClass="shadow"
+          showMaskNumber={true}
+          showCustomCloseButton={false}
+          showButtons={false}
+          showNavigation={false}
+          showDVPanel={true}
           enableArrow={true}
           
         />

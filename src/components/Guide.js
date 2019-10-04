@@ -10,6 +10,7 @@ const Guide = styled.div`
   min-width: 150px;
   padding-right: 40px;
   border-radius: ${props.rounded}px;
+  border: 1px solid transparent;
   background-color: #fff;
   padding: 24px 30px;
   box-shadow: 0 0.5em 3em rgba(0, 0, 0, 0.3);

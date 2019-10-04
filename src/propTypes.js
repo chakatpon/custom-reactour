@@ -24,6 +24,8 @@ export const propTypes = {
   showNavigation: PropTypes.bool,
   showNavigationNumber: PropTypes.bool,
   showNumber: PropTypes.bool,
+  showMaskNumber: PropTypes.bool,
+  showDVPanel: PropTypes.bool,
   startAt: PropTypes.number,
   goToStep: PropTypes.number,
   getCurrentStep: PropTypes.func,
@@ -57,7 +59,8 @@ export const propTypes = {
   rounded: PropTypes.number,
   accentColor: PropTypes.string,
   isCircleMask: PropTypes.bool,
-  enableArrow: PropTypes.bool
+  enableArrow: PropTypes.bool,
+  shadowClass: PropTypes.string
 }
 
 export const defaultProps = {
@@ -67,6 +70,8 @@ export const defaultProps = {
   showCloseButton: false,
   showCustomCloseButton: true,
   showNumber: true,
+  showMaskNumber: false,
+  showDVPanel: false,
   scrollDuration: 1,
   maskSpace: 10,
   updateDelay: 1,
@@ -75,5 +80,6 @@ export const defaultProps = {
   accentColor: '#007aff',
   closeWithMask: true,
   isCircleMask: false,
-  enableArrow: false
+  enableArrow: false,
+  shadowClass: "",
 }

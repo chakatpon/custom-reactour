@@ -88,3 +88,17 @@ body {
   margin-right: 10px;
   margin-left: 10px;
 }
+
+.shadow{
+  -webkit-filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+  filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+  /* Similar syntax to box-shadow */
+}
+
+.dv-btn {
+  background-color: #f3f3f3
+}
+
+.dv-btn:hover {
+  background-color: #f8f8f8
+} 
