@@ -5,7 +5,7 @@ import Scrollparent from 'scrollparent'
 import debounce from 'lodash.debounce'
 import FocusLock from 'react-focus-lock'
 import { GlobalStyle } from './style'
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   Arrow,
   Close,
