@@ -666,8 +666,6 @@ class Tour extends Component {
                     : null
                   }
                   
-
-
                   {showCloseButton && !showCustomCloseButton ? <Close onClick={onRequestClose} /> : null}
                   {showCustomCloseButton ? <CustomClose onClick={onRequestClose} /> : null}
                 </>
